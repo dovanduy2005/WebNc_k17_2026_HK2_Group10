@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+    --text-background: 0 0% 5%;
+    --text-foreground: 0 0% 98%;
+
+    --color-background: oklch(21.03% 0 0);
+    --color-foreground: oklch(98% 0 0);
+
+    --color-card: oklch(25% 0 0);
+    --color-card-foreground: oklch(98% 0 0);
+
+    --color-popover: oklch(25% 0 0);
+    --color-popover-foreground: oklch(98% 0 0);
+
+    --color-primary: oklch(62.8% 0.2576 29.23);
+    --color-primary-foreground: oklch(100% 0 0);
+
+    --color-secondary: oklch(30% 0 0);
+    --color-secondary-foreground: oklch(98% 0 0);
+
+    --color-muted: oklch(35% 0 0);
+    --color-muted-foreground: oklch(70% 0 0);
+
+    --color-accent: oklch(62.8% 0.2576 29.23);
+    --color-accent-foreground: oklch(100% 0 0);
+
+    --color-destructive: oklch(60% 0.25 29);
+    --color-destructive-foreground: oklch(98% 0 0);
+
+    --color-border: oklch(40% 0 0 / 0.18);
+    --color-input: oklch(40% 0 0 / 0.18);
+    --color-ring: oklch(62.8% 0.2576 29.23);
+
+    --radius-lg: 0.75rem;
+    --radius-md: calc(0.75rem - 2px);
+    --radius-sm: calc(0.75rem - 4px);
+
+    --font-sans: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+        
+    --background-gradient-hero: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(0 0% 10%) 50%, hsl(0 0% 5%) 100%);
+    --background-gradient-card: linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 6%) 100%);
+    --background-gradient-accent: linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(0 84% 40%) 100%);
+    --background-gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(0 0% 5% / 0.9) 100%);
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px hsl(0 84% 50% / 0.3); }
+        50% { box-shadow: 0 0 40px hsl(0 84% 50% / 0.6); }
+    }
+    
+    @keyframes slide-in-right {
+        from { opacity: 0; transform: translateX(20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 70%) 100%);
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(0 84% 55%) 0%, hsl(0 84% 45%) 100%);
+  }
+
+  .card-luxury {
+    background: var(--background-gradient-card);
+    box-shadow: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+    @apply border border-border/50 backdrop-blur-sm;
+  }
+
+  .card-luxury:hover {
+    box-shadow: 0 20px 60px -15px hsl(0 84% 50% / 0.4);
+    @apply border-primary/30;
+  }
+
+  .btn-primary-glow {
+    box-shadow: 0 0 30px hsl(0 84% 50% / 0.3);
+  }
+
+  .btn-primary-glow:hover {
+    box-shadow: 0 0 40px hsl(0 84% 50% / 0.5);
+  }
+
+  .hero-overlay {
+    background: var(--background-gradient-overlay);
+  }
+
+  .section-divider {
+    @apply w-20 h-1 bg-primary rounded-full mx-auto;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+}
