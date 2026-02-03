@@ -18,6 +18,7 @@ Route::get('/contact', function () {
 });
 Route::post('/contact', [App\Http\Controllers\FeedbackController::class, 'storeContact'])->name('contact.store');
 
+
 Route::get('/auth', function () {
     return view('auth');
 })->name('login');
