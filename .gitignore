@@ -1,3 +1,4 @@
+# General Ignores
 *.log
 .DS_Store
 .env
