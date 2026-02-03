@@ -70,9 +70,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Customers
         Route::get('/customers', [App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('customers.index');
-
-        // Admin Profile
-        Route::get('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'show'])->name('profile');
-        Route::post('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'update'])->name('profile.update');
     });
 });
