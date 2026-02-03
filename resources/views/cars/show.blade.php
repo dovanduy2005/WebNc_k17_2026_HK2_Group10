@@ -22,7 +22,6 @@
 
         @php
             $images = $car->images ?? [];
-<<<<<<< HEAD
             
             // Handle main image
             if (!empty($car->image)) {
@@ -40,15 +39,6 @@
                 return \Illuminate\Support\Str::startsWith($img, 'http') ? $img : \Illuminate\Support\Facades\Storage::url($img);
             }, $images);
             
-=======
-            if ($car->image && !in_array($car->image, $images)) {
-                array_unshift($images, $car->image);
-            }
-            // Map images to correct URL
-            $images = array_map(function($img) {
-                return \Illuminate\Support\Str::startsWith($img, 'http') ? $img : \Illuminate\Support\Facades\Storage::url($img);
-            }, $images);
->>>>>>> aefd3b93ce223292863b7a06828a7092849a97ce
             $isFavorite = auth()->check() && auth()->user()->favorites()->where('car_id', $car->id)->exists();
         @endphp
 
