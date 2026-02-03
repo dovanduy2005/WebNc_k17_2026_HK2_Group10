@@ -1,9 +1,9 @@
-composer install
-cp .env.example .env
-php artisan key:generate
-npm install
-npm run dev
-php artisan storage:link
-php artisan migrate
-php artisan serve
-tk admin :admin@gmail.com mk:12345678
+# Web Bán Ô Tô (Frontend Only)
+
+Dự án này hiện tại chỉ chứa phần giao diện (Frontend).
+Phần Backend (Laravel Controllers, Models, Migrations) đã được lược bỏ để tập trung vào phát triển giao diện.
+
+## Trạng thái
+- **Frontend**: Giữ nguyên (Views, Public assets).
+- **Backend**: Đã xóa.
+- **Routes**: Chỉ giữ lại các routes tĩnh trả về View.
