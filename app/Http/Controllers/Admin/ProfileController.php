@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -10,20 +11,8 @@ class ProfileController extends Controller
 {
     public function show()
     {
-        $user = Auth::user();
-
-        $contracts = $user->contracts()->with('car')->latest()->get();
-        
-        $stats = [
-            'favorites_count' => $user->favorites()->count(),
-            'bookings_count' => $user->bookings()->count(),
-            'contracts_count' => $contracts->count(),
-        ];
-        
-        return view('profile.show', [
-            'user' => $user,
-            'contracts' => $contracts,
-            'stats' => $stats,
+        return view('admin.profile', [
+            'user' => Auth::user(),
         ]);
     }
 

@@ -32,16 +32,6 @@
                         </div>
                         <h2 class="text-xl font-bold mb-1">{{ $user->name }}</h2>
                         <p class="text-sm text-muted-foreground mb-4">{{ $user->email }}</p>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full {{ $user->role === 'admin' ? 'bg-amber-500/10 text-amber-500 border-amber-500/20' : 'bg-primary/10 text-primary border-primary/20' }} text-xs font-medium border">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                @if($user->role === 'admin')
-                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>
-                                @else
-                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-                                @endif
-                            </svg>
-                            {{ $user->role === 'admin' ? 'Quản trị viên' : 'Khách hàng' }}
-                        </div>
                     </div>
 
                     <div class="card-luxury p-6 space-y-4">
